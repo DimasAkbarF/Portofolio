@@ -1,0 +1,241 @@
+/* Base styles */
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom Navbar */
+.custom-navbar {
+    background: rgba(33, 37, 41, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1); /* Membuat ikon lebih terang */
+}
+
+
+.nav-link:hover {
+    color: #0d6efd !important;
+}
+
+/* Jumbotron Section */
+.jumbotron {
+    background: rgba(33, 37, 41, 0.5);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.wave-emoji {
+    display: inline-block;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+#Contact {
+    transition: all 0.3s ease-in-out;
+}
+
+#Contact h2 {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 1s forwards;
+}
+
+#contactForm {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards 0.3s;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Contact Icons */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.contact-options {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.contact-options a img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s ease;
+}
+
+.contact-options a:hover img {
+    transform: scale(1.2);
+}
+
+/* Custom Buttons */
+.btn-custom {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+}
+
+/* Education Section */
+.education-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.education-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Services Cards */
+.card {
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(52, 58, 64, 0.9) !important;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Skills Section */
+.skill-item {
+    margin-bottom: 2rem;
+}
+
+.progress {
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.progress-bar {
+    border-radius: 15px;
+}
+
+/* Footer */
+.footer-navbar {
+    padding: 1rem 0;
+    margin-top: 3rem;
+    
+}
+
+.footer-nav a {
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: cyan !important;
+   
+}
+/* Contact Form Send Button */
+#Contact .btn-custom-send {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: none;
+    font-weight: bold;
+}
+
+#Contact .btn-custom-send:hover {
+    transform: scale(1.1);
+    background-color: #0b5ed7;
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .jumbotron img {
+        width: 150px;
+    }
+    
+    .contact-options {
+        gap: 1rem;
+    }
+    
+    .education-logo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section Transitions */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0b5ed7;
+}
