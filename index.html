@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <title>Portofolio</title>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+        color: white;
+        font-family: system-ui, -apple-system, sans-serif;
+        cursor: pointer;
+      }
+      .contact-options i {
+        font-size: 2rem;
+        color: #495057;
+        margin: 0 10px;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      /* Style dasar */
+
+      /* Style dasar untuk .navbar-toggler-icon */
+      .contact-options i:hover {
+        color: #0d6efd;
+        transform: scale(1.2);
+      }
+
+      .jumbotron {
+        padding: 3rem;
+      }
+
+      .wave-emoji {
+        display: inline-block;
+        animation: wave 1.5s ease-in-out infinite;
+      }
+
+      /* Keyframes for the waving animation */
+      @keyframes wave {
+        0%,
+        100% {
+          transform: rotate(0deg); /* Start and end at original position */
+        }
+        25% {
+          transform: rotate(10deg); /* Rotate 10 degrees clockwise */
+        }
+        50% {
+          transform: rotate(0deg); /* Return to original position */
+        }
+        75% {
+          transform: rotate(-10deg); /* Rotate 10 degrees counterclockwise */
+        }
+      }
+
+      .navbar {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .nav-link:hover {
+        color: #0d6efd !important;
+      }
+
+      .navbar a:hover {
+        transform: scale(0.5);
+      }
+      /* About Section */
+      /* About Section */
+      .about-section {
+        padding: 4rem 0;
+      }
+
+      .about-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .about-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .about-text {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: white;
+        opacity: 0.75;
+      }
+
+      /* Education Section */
+      .education-section {
+        padding: 4rem 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(to right, #00f2fe, #4facfe);
+      }
+
+      .education-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .education-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .year {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .education-card h3 {
+        font-size: 1.2rem;
+        color: #4facfe;
+        margin-bottom: 0.5rem;
+      }
+
+      .education-card h4 {
+        font-size: 1rem;
+        color: #e0e0e0;
+        font-weight: normal;
+      }
+
+      .jumbotron img {
+        border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        object-fit: cover;
+      }
+
+      /* Performance Optimizations */
+      * {
+        text-rendering: optimizeLegibility;
+      }
+
+      .navbar,
+      .education-card {
+        will-change: transform;
+      }
+
+      @media (max-width: 768px) {
+        .jumbotron {
+          padding: 1rem;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
+
+        .education-card {
+          margin: 0.75rem;
+        }
+      }
+
+      .shadow-card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease-in-out;
+      }
+
+      /* Hover effect for a more pronounced shadow */
+      .shadow-card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Gradient background for card body */
+      .gradient-background {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+        color: #fff;
+      }
+
+      /* Coming Soon overlay */
+      .position-relative {
+        position: relative;
+      }
+
+      .coming-soon-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        opacity: 0.8;
+      }
+
+      .coming-soon-text {
+        text-transform: uppercase;
+      }
+
+      /* Projects Section */
+      .project-section {
+        padding: 4rem 0;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        backdrop-filter: blur(10px);
+        position: relative; /* Needed for bottom line pseudo-element */
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(to right, #00f2fe, #4facfe);
+        border-radius: 2px;
+      }
+
+      .project-text {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: white;
+        opacity: 0.75;
+      }
+      .contact-card {
+        transition: transform 0.3s ease-in-out;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+      }
+
+      .contact-card:hover {
+        transform: scale(1.02);
+      }
+
+      .card-title {
+        font-weight: bold;
+        color: #fff;
+      }
+
+      form .btn-primary {
+        background-color: #0d6efd;
+        border: none;
+      }
+
+      form .btn-primary:hover {
+        background-color: #084298;
+      }
+
+      .contact-options a {
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .contact-options a:hover {
+        transform: scale(1.2);
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+        padding: 1rem;
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+
+      .sidebar-header {
+        padding: 1rem 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .sidebar-header h3 {
+        color: white;
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        color: rgba(255, 255, 255, 0.8);
+        padding: 0.75rem 1rem;
+        margin: 0.5rem 0;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
+
+      .content {
+        margin-left: 250px;
+        padding: 1rem;
+      }
+
+      .toggle-btn {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1001;
+        width: 35px;
+        height: 35px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+        border: 2px solid white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+      }
+
+      .toggle-btn:hover {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+        transform: scale(1.05);
+      }
+
+      .toggle-btn:active {
+        transform: scale(0.95);
+      }
+
+      .toggle-btn .hamburger {
+        width: 24px;
+        height: 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .toggle-btn .hamburger span {
+        width: 24px;
+        height: 2.5px;
+        background: white;
+        position: absolute;
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .toggle-btn .hamburger span:nth-child(1) {
+        transform: translateY(-8px);
+      }
+
+      .toggle-btn .hamburger span:nth-child(3) {
+        transform: translateY(8px);
+      }
+
+      /* Animasi untuk tombol active */
+      .toggle-btn.active .hamburger span:nth-child(1) {
+        transform: rotate(45deg);
+      }
+
+      .toggle-btn.active .hamburger span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .toggle-btn.active .hamburger span:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          transform: translateX(-100%);
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .content {
+          margin-left: 0;
+        }
+      }
+
+      .nav-link:active {
+        transform: scale(0.98);
+      }
+    </style>
+  </head>
+  <body>
+    <button class="toggle-btn d-md-none" onclick="toggleSidebar(this)">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>DAF</h3>
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#About">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <section class="jumbotron text-center">
+      <img src="img/me (1).jpg" alt="dimas" width="200" height="200" />
+      <h1 class="display-4 fw-bold" style="padding: 1rem">
+        HI EVERYONE <span class="wave-emoji">👋</span>
+      </h1>
+      <span class="text-primary fw-bold display-4">I'M DIMAS AKBAR</span>
+      <span class="text-animation text-light fw-bold display-4"
+        >FATUROHMAN</span
+      >
+      <p class="lead">
+        Currently focused on mastering
+        <span class="text-primary">web development</span>
+        while providing professional
+        <span class="text-primary">Android flashing</span>
+        and system optimization services.
+      </p>
+    </section>
+
+    <div class="d-flex justify-content-center gap-2">
+      <!-- Resume Button with Bootstrap icon -->
+      <a
+        href="cooming.html"
+        class="btn btn-primary btn-custom d-flex align-items-center"
+        target="_blank"
+      >
+        <i class="bi bi-file-earmark-text me-2"></i> Resume
+      </a>
+    </div>
+
+    <div id="Contact1" class="container my-5">
+      <div class="contact-container text-center">
+        <div class="contact-options">
+          <a
+            href="mailto:dimasakbr730@gmail.com"
+            title="Gmail"
+            class="contact-link"
+          >
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/dimasakbr29"
+            target="_blank"
+            title="Instagram"
+            class="contact-link"
+          >
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/DimasAkbarF"
+            target="_blank"
+            title="GitHub"
+            class="contact-link"
+          >
+            <i class="bi bi-github"></i>
+          </a>
+          <a
+            href="https://t.me/DIMMZZGOOD"
+            target="_blank"
+            title="Telegram"
+            class="contact-link"
+          >
+            <i class="bi bi-telegram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section id="About" class="about-section">
+      <div class="container">
+        <div class="row text-center mb-3" data-aos="fade-up">
+          <div class="col">
+            <h2 class="section-title">About Me</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6">
+            <div
+              class="about-card shadow-card p-4 gradient-background"
+              data-aos="fade-up"
+            >
+              <p class="about-text">
+                - I am Dimas Akbar Faturohman, a student majoring in
+                <span class="text-primary">Informatics</span> at
+                <span class="text-primary">Universitas Pamulang</span>, with a
+                strong passion for
+                <span class="text-primary">web development</span> and
+                <span class="text-primary">system optimization</span>. I am
+                currently enhancing my skills in both
+                <span class="text-primary">front-end</span> and
+                <span class="text-primary">back-end</span> development by
+                learning the latest web technologies. Additionally, I provide
+                Android system <span class="text-primary">flashing</span> and
+                <span class="text-primary">optimization services</span>,
+                focusing on improving device performance and delivering a
+                smoother, more efficient user experience.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="about-card shadow-card p-4 gradient-background">
+              <p class="about-text">
+                - After graduating from
+                <span class="text-primary">SMK Negeri 2 Rangkasbitung</span> in
+                <span class="text-primary">Agriculture</span>, I decided to
+                broaden my horizons and pursue a different field: technology.
+                This step took me to
+                <span class="text-primary">Pamulang University</span>, where I
+                majored in <span class="text-primary">Informatics</span>. During
+                this journey, I discovered a deep interest in
+                <span class="text-primary">web development</span>,
+                <span class="text-primary">programming</span>, and
+                <span class="text-primary">system optimization</span>. My focus
+                is on web development, improving device performance, and
+                providing a better user experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="education-section">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-title">Education</h2>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="education-card">
+              <div class="card-content">
+                <div class="year">Universitas Pamulang</div>
+                <h3>Informatics Engineering</h3>
+                <h4>2024 -</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="education-card">
+              <div class="card-content">
+                <div class="year">SMKN 2 Rangkasbitung</div>
+                <h3>majoring in agriculture</h3>
+                <h4>2022-2024</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="project-section">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col">
+            <h2 class="section-title">Projects</h2>
+          </div>
+        </div>
+        <div class="row text-center">
+          <!-- Project Card 1 -->
+          <div class="col-12 col-md-4 mb-4">
+            <div class="project-card position-relative">
+              <img
+                src="img/project1.jpg"
+                class="card-img-top"
+                alt="Project Image 1"
+              />
+              <div class="card-body gradient-background">
+                <div class="d-flex align-items-center mb-3">
+                  <h5 class="card-title mb-0">Framework</h5>
+                </div>
+                <div class="tech-stack mb-3">
+                  <i class="bi bi-filetype-html text-warning me-2"></i>
+                  <i class="bi bi-filetype-css text-info me-2"></i>
+                  <i class="bi bi-filetype-js text-warning me-2"></i>
+                  <i class="bi bi-bootstrap text-primary me-2"></i>
+                  <i class="bi bi-git text-danger"></i>
+                </div>
+                <p class="project-text">
+                  Description for the first project card with relevant content.
+                </p>
+                <a
+                  href="https://tech-fix-software.vercel.app"
+                  class="btn btn-primary"
+                >
+                  <i class="bi bi-box-arrow-up-right me-2"></i>
+                  See my website
+                </a>
+                <div class="social-links mt-3">
+                  <a href="#" class="me-3">
+                    <i class="bi bi-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2 (Coming Soon) -->
+          <div class="col-12 col-md-4 mb-4">
+            <div class="project-card position-relative">
+              <img
+                src="img/project2.png"
+                class="card-img-top"
+                alt="Project Image 1"
+              />
+              <div class="card-body gradient-background">
+                <div class="d-flex align-items-center mb-3">
+                  <h5 class="card-title mb-0">Framework</h5>
+                </div>
+                <div class="tech-stack mb-3">
+                  <i class="bi bi-filetype-html text-warning me-2"></i>
+                  <i class="bi bi-filetype-css text-info me-2"></i>
+                  <i class="bi bi-filetype-js text-warning me-2"></i>
+                </div>
+                <p class="project-text">
+                  Description for the first project card with relevant content.
+                </p>
+                <a
+                  href="https://kenangan-senja-three.vercel.app/"
+                  class="btn btn-primary"
+                >
+                  <i class="bi bi-box-arrow-up-right me-2"></i>
+                  See my website
+                </a>
+                <div class="social-links mt-3">
+                  <a href="#" class="me-3">
+                    <i class="bi bi-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 3 (Coming Soon) -->
+          <div class="col-12 col-md-4 mb-4">
+            <div class="project-card position-relative">
+              <img
+                src="img/cooomingsoon.webp"
+                class="card-img-top"
+                alt="Project Image 3"
+              />
+              <!-- Coming Soon Overlay -->
+              <div class="coming-soon-overlay">
+                <span class="coming-soon-text">Coming Soon</span>
+              </div>
+              <div class="card-body gradient-background">
+                <h5 class="card-title">Coming Soon</h5>
+                <p class="project-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary disabled">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="text-center">Contact Me</h2>
+    <div class="container my-5" id="Contact">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div
+            class="card contact-card shadow-lg p-3 mb-5 bg-body rounded animate__animated animate__fadeInUp"
+          >
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Your Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="4"
+                    placeholder="Write your message"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100 animate__animated animate__pulse animate__infinite"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-navbar">
+      <div class="container">
+        <ul class="footer-nav d-flex justify-content-center mb-0 list-unstyled">
+          <li class="mx-3">
+            <a href="#Home" class="text-decoration-none text-light">Home</a>
+          </li>
+          <li class="mx-3">
+            <a href="#About" class="text-decoration-none text-light">About</a>
+          </li>
+          <li class="mx-3">
+            <a href="#Projects" class="text-decoration-none text-light"
+              >Projects</a
+            >
+          </li>
+          <li class="mx-3">
+            <a href="#Contact" class="text-decoration-none text-light"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <div id="Contact1" class="container my-5">
+      <div class="contact-container text-center">
+        <div class="contact-options">
+          <a
+            href="mailto:dimasakbr730@gmail.com"
+            title="Gmail"
+            class="contact-link"
+          >
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/dimasakbr29"
+            target="_blank"
+            title="Instagram"
+            class="contact-link"
+          >
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/DimasAkbarF"
+            target="_blank"
+            title="GitHub"
+            class="contact-link"
+          >
+            <i class="bi bi-github"></i>
+          </a>
+          <a
+            href="https://t.me/DIMMZZGOOD"
+            target="_blank"
+            title="Telegram"
+            class="contact-link"
+          >
+            <i class="bi bi-telegram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-light text-center p-3 fs-5opacity-75">
+      <p>&copy; 2024 Dimas Akbar Faturohman. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script>
+      function toggleSidebar(e) {
+        document.querySelector(".sidebar").classList.toggle("active"),
+          e.classList.toggle("active");
+      }
+      let timeout;
+      window.addEventListener("resize", function () {
+        clearTimeout(timeout),
+          (timeout = setTimeout(function () {
+            window.innerWidth > 768 &&
+              (document.querySelector(".sidebar").classList.remove("active"),
+              document.querySelector(".toggle-btn").classList.remove("active"));
+          }, 250));
+      }),
+        document.addEventListener(
+          "click",
+          function (e) {
+            let t = document.querySelector(".sidebar"),
+              i = document.querySelector(".toggle-btn");
+            !(window.innerWidth <= 768) ||
+              t.contains(e.target) ||
+              i.contains(e.target) ||
+              (t.classList.remove("active"), i.classList.remove("active"));
+          },
+          { passive: !0 }
+        );
+    </script>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
