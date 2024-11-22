@@ -364,30 +364,26 @@
 
 
     <script>
- document.addEventListener('DOMContentLoaded', () => {
-    // Cache frequently accessed elements
+function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
     const toggleArrow = document.querySelector('.toggle-arrow');
     const content = document.querySelector('.content');
     const overlay = document.querySelector('.overlay');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.section');
 
-    // Toggle sidebar and content on click
-    function toggleSidebar() {
-        sidebar.classList.toggle('active');
-        toggleArrow.classList.toggle('active');
-        content.classList.toggle('shifted');
-        overlay.classList.toggle('active');
-    }
+    sidebar.classList.toggle('active');
+    toggleArrow.classList.toggle('active');
+    content.classList.toggle('shifted');
+    overlay.classList.toggle('active');
+}
 
-    // Handle navigation and active states
-    function handleNavLinkClick(e) {
+// Handle navigation and active states
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
         // Remove all active states
-        navLinks.forEach(link => {
-            link.setAttribute('data-active', 'false');
+        document.querySelectorAll('.nav-link').forEach(l => {
+            l.setAttribute('data-active', 'false');
         });
-        sections.forEach(section => {
+        document.querySelectorAll('.section').forEach(section => {
             section.classList.remove('active');
         });
 
@@ -402,40 +398,35 @@
         if (window.innerWidth <= 768) {
             toggleSidebar();
         }
-    }
+    });
+});
 
-    // Set initial state based on URL hash
-    function setInitialState() {
-        const hash = window.location.hash || '#home';
-        const targetLink = document.querySelector(`a[href="${hash}"]`);
-        const targetSection = document.querySelector(hash);
+// Handle initial state based on URL hash
+function setInitialState() {
+    const hash = window.location.hash || '#home'; // Default to #home if no hash in URL
+    const targetLink = document.querySelector(`a[href="${hash}"]`);
+    const targetSection = document.querySelector(hash);
 
-        // Remove all active states
-        navLinks.forEach(link => {
-            link.setAttribute('data-active', 'false');
-        });
-        sections.forEach(section => {
-            section.classList.remove('active');
-        });
-
-        // Add active state to initial section based on URL hash
-        if (targetLink && targetSection) {
-            targetLink.setAttribute('data-active', 'true');
-            targetSection.classList.add('active');
-        }
-    }
-
-    // Set initial state on page load
-    setInitialState();
-
-    // Event listener for clicking nav links
-    navLinks.forEach(link => {
-        link.addEventListener('click', handleNavLinkClick);
+    // Remove all active states
+    document.querySelectorAll('.nav-link').forEach(l => {
+        l.setAttribute('data-active', 'false');
+    });
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
     });
 
-    // Update state when hash changes
-    window.addEventListener('hashchange', setInitialState);
-});
+    // Add active state to initial section based on URL hash
+    if (targetLink && targetSection) {
+        targetLink.setAttribute('data-active', 'true');
+        targetSection.classList.add('active');
+    }
+}
+
+// Set initial state on page load
+setInitialState();
+
+// Update state when hash changes
+window.addEventListener('hashchange', setInitialState);
 
     </script>
 
