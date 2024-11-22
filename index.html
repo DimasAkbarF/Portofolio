@@ -11,37 +11,41 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/style.css">
 
+    <link rel="stylesheet" href="css/style.css" />
 
     <title>Portofolio</title>
-
   </head>
   <body>
     <div class="overlay" onclick="toggleSidebar()"></div>
-    
+
     <button class="toggle-arrow" onclick="toggleSidebar()">
-        <div class="arrow"></div>
+      <div class="arrow"></div>
     </button>
 
     <div class="sidebar">
-        <div class="sidebar-header">
-            <h3>DAF</h3>
-        </div>
-        <nav>
-            <a class="nav-link" href="#Home" data-active="true">Home</a>
-            <a class="nav-link" href="#About">About</a>
-            <a class="nav-link" href="#education">Education</a>
-            <a class="nav-link" href="#projects">Projects</a>
-            <a class="nav-link" href="#Contact">Contact</a>
-        </nav>
+      <div class="sidebar-header">
+        <h3>DAF</h3>
+      </div>
+      <nav>
+        <a class="nav-link" href="#Home" data-active="true">Home</a>
+        <a class="nav-link" href="#About">About</a>
+        <a class="nav-link" href="#education">Education</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#Contact">Contact</a>
+      </nav>
     </div>
 
-
     <section class="jumbotron text-center" id="Home">
-      <img src="img/me (1)_11zon.jpg" alt="dimas" width="200" height="200" loading="lazy">
+      <img
+        src="img/me (1)_11zon.jpg"
+        alt="dimas"
+        width="200"
+        height="200"
+        loading="lazy"
+      />
 
       <h1 class="display-4 fw-bold" style="padding: 1rem">
         HI EVERYONE <span class="wave-emoji">👋</span>
@@ -73,36 +77,44 @@
     <div id="Contact1" class="container my-5">
       <div class="contact-container text-center">
         <div class="contact-options">
+          <!-- Gmail Icon -->
           <a
             href="mailto:dimasakbr730@gmail.com"
             title="Gmail"
             class="contact-link"
           >
-            <i class="bi bi-envelope-fill"></i>
+            <i class="fas fa-envelope"></i>
+            <!-- Ikon Font Awesome untuk Email -->
           </a>
+          <!-- Instagram Icon -->
           <a
             href="https://www.instagram.com/dimasakbr29"
             target="_blank"
             title="Instagram"
             class="contact-link"
           >
-            <i class="bi bi-instagram"></i>
+            <i class="fab fa-instagram"></i>
+            <!-- Ikon Font Awesome untuk Instagram -->
           </a>
+          <!-- GitHub Icon -->
           <a
             href="https://github.com/DimasAkbarF"
             target="_blank"
             title="GitHub"
             class="contact-link"
           >
-            <i class="bi bi-github"></i>
+            <i class="fab fa-github"></i>
+            <!-- Ikon Font Awesome untuk GitHub -->
           </a>
+          <!-- Telegram Icon -->
           <a
             href="https://t.me/DIMMZZGOOD"
             target="_blank"
             title="Telegram"
             class="contact-link"
           >
-            <i class="bi bi-telegram"></i>
+            <i class="fab fa-telegram-plane"></i>
+            <!-- Ikon Font Awesome untuk Telegram -->
           </a>
         </div>
       </div>
@@ -110,7 +122,7 @@
 
     <section id="About" class="about-section">
       <div class="container">
-        <div class="row text-center mb-3" data-aos="fade-up">
+        <div class="row text-center mb-3">
           <div class="col">
             <h2 class="section-title">About Me</h2>
           </div>
@@ -119,7 +131,7 @@
           <div class="col-12 col-md-6">
             <div
               class="about-card shadow-card p-4 gradient-background"
-              data-aos="fade-up"
+           
             >
               <p class="about-text">
                 - I am Dimas Akbar Faturohman, a student majoring in
@@ -195,53 +207,104 @@
     <section id="projects" class="projects">
       <h2 class="section-title">Recent Projects</h2>
       <div class="project-grid">
-        
         <!-- Project A -->
         <div class="projects-card">
-          <img src="img/project1_11zon.jpg" alt="Screenshot of Project A - a task management app" loading="lazy" />
+          <img
+            src="img/project1_11zon.jpg"
+            alt="Screenshot of Project A - a task management app"
+            loading="lazy"
+          />
           <h3>Project A</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, quisquam nam! Quam molestias itaque at reprehenderit
-            voluptas excepturi nesciunt odit rerum optio reiciendis! Nam hic praesentium officia itaque beatae dolores!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
+            quisquam nam! Quam molestias itaque at reprehenderit voluptas
+            excepturi nesciunt odit rerum optio reiciendis! Nam hic praesentium
+            officia itaque beatae dolores!
           </p>
           <div class="btn-group">
-            <a href="https://tech-fix-software.vercel.app/" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
-            <a href="https://github.com/DimasAkbarF/techFixSoftware" class="btn" target="_blank" rel="noopener noreferrer">Github Repo</a>
+            <a
+              href="https://tech-fix-software.vercel.app/"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Demo</a
+            >
+            <a
+              href="https://github.com/DimasAkbarF/techFixSoftware"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Github Repo</a
+            >
           </div>
         </div>
-        
+
         <!-- Project B -->
         <div class="projects-card">
-          <img src="img/project2_11zon.jpg" alt="Screenshot of Project B - a digital journaling app" loading="lazy" />
+          <img
+            src="img/project2_11zon.jpg"
+            alt="Screenshot of Project B - a digital journaling app"
+            loading="lazy"
+          />
           <h3>Project B</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, quisquam nam! Quam molestias itaque at reprehenderit
-            voluptas excepturi nesciunt odit rerum optio reiciendis! Nam hic praesentium officia itaque beatae dolores!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
+            quisquam nam! Quam molestias itaque at reprehenderit voluptas
+            excepturi nesciunt odit rerum optio reiciendis! Nam hic praesentium
+            officia itaque beatae dolores!
           </p>
           <div class="btn-group">
-            <a href="https://kenangan-senja-three.vercel.app/" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
-            <a href="https://github.com/DimasAkbarF/kenangan-senja" class="btn" target="_blank" rel="noopener noreferrer">Github Repo</a>
+            <a
+              href="https://kenangan-senja-three.vercel.app/"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Demo</a
+            >
+            <a
+              href="https://github.com/DimasAkbarF/kenangan-senja"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Github Repo</a
+            >
           </div>
         </div>
-        
+
         <!-- Project C -->
         <div class="projects-card">
-          <img src="img/project3.png" alt="Screenshot of Project C - a calculator app" loading="lazy" />
+          <img
+            src="img/project3.png"
+            alt="Screenshot of Project C - a calculator app"
+            loading="lazy"
+          />
           <h3>Project C</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, quisquam nam! Quam molestias itaque at reprehenderit
-            voluptas excepturi nesciunt odit rerum optio reiciendis! Nam hic praesentium officia itaque beatae dolores!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
+            quisquam nam! Quam molestias itaque at reprehenderit voluptas
+            excepturi nesciunt odit rerum optio reiciendis! Nam hic praesentium
+            officia itaque beatae dolores!
           </p>
           <div class="btn-group">
-            <a href="https://dimasakbarf.github.io/kalkulator/" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
-            <a href="https://github.com/DimasAkbarF/kalkulator" class="btn" target="_blank" rel="noopener noreferrer">Github Repo</a>
+            <a
+              href="https://dimasakbarf.github.io/kalkulator/"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Demo</a
+            >
+            <a
+              href="https://github.com/DimasAkbarF/kalkulator"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Github Repo</a
+            >
           </div>
         </div>
-        
       </div>
     </section>
-    
-    
+
     <h2 class="text-center">Contact Me</h2>
     <div class="container my-5" id="Contact">
       <div class="row justify-content-center">
@@ -291,68 +354,47 @@
       </div>
     </div>
 
-    <footer class="footer-navbar">
-      <div class="container">
-        <ul class="footer-nav d-flex justify-content-center mb-0 list-unstyled">
-          <li class="mx-3">
-            <a href="#Home" class="text-decoration-none text-light">Home</a>
-          </li>
-          <li class="mx-3">
-            <a href="#About" class="text-decoration-none text-light">About</a>
-          </li>
-          <li class="mx-3">
-            <a href="#Education" class="text-decoration-none text-light"
-              >Contact</a
-            >
-          </li>
-          <li class="mx-3">
-            <a href="#Projects" class="text-decoration-none text-light"
-              >Projects</a
-            >
-          </li>
-
-          <li class="mx-3">
-            <a href="#Contact" class="text-decoration-none text-light"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </div>
-    </footer>
-
     <div id="Contact1" class="container my-5">
       <div class="contact-container text-center">
         <div class="contact-options">
+          <!-- Gmail Icon -->
           <a
             href="mailto:dimasakbr730@gmail.com"
             title="Gmail"
             class="contact-link"
           >
-            <i class="bi bi-envelope-fill"></i>
+            <i class="fas fa-envelope"></i>
+            <!-- Ikon Font Awesome untuk Email -->
           </a>
+          <!-- Instagram Icon -->
           <a
             href="https://www.instagram.com/dimasakbr29"
             target="_blank"
             title="Instagram"
             class="contact-link"
           >
-            <i class="bi bi-instagram"></i>
+            <i class="fab fa-instagram"></i>
+            <!-- Ikon Font Awesome untuk Instagram -->
           </a>
+          <!-- GitHub Icon -->
           <a
             href="https://github.com/DimasAkbarF"
             target="_blank"
             title="GitHub"
             class="contact-link"
           >
-            <i class="bi bi-github"></i>
+            <i class="fab fa-github"></i>
+            <!-- Ikon Font Awesome untuk GitHub -->
           </a>
+          <!-- Telegram Icon -->
           <a
             href="https://t.me/DIMMZZGOOD"
             target="_blank"
             title="Telegram"
             class="contact-link"
           >
-            <i class="bi bi-telegram"></i>
+            <i class="fab fa-telegram-plane"></i>
+            <!-- Ikon Font Awesome untuk Telegram -->
           </a>
         </div>
       </div>
@@ -362,72 +404,72 @@
       <p>&copy; 2024 Dimas Akbar Faturohman. All rights reserved.</p>
     </footer>
 
-
     <script>
-function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    const toggleArrow = document.querySelector('.toggle-arrow');
-    const content = document.querySelector('.content');
-    const overlay = document.querySelector('.overlay');
+      function toggleSidebar() {
+        const sidebar = document.querySelector(".sidebar");
+        const toggleArrow = document.querySelector(".toggle-arrow");
+        const content = document.querySelector(".content");
+        const overlay = document.querySelector(".overlay");
 
-    sidebar.classList.toggle('active');
-    toggleArrow.classList.toggle('active');
-    content.classList.toggle('shifted');
-    overlay.classList.toggle('active');
-}
+        sidebar.classList.toggle("active");
+        toggleArrow.classList.toggle("active");
+        content.classList.toggle("shifted");
+        overlay.classList.toggle("active");
+      }
 
-// Handle navigation and active states
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-        // Remove all active states
-        document.querySelectorAll('.nav-link').forEach(l => {
-            l.setAttribute('data-active', 'false');
-        });
-        document.querySelectorAll('.section').forEach(section => {
-            section.classList.remove('active');
-        });
+      // Handle navigation and active states
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          // Remove all active states
+          document.querySelectorAll(".nav-link").forEach((l) => {
+            l.setAttribute("data-active", "false");
+          });
+          document.querySelectorAll(".section").forEach((section) => {
+            section.classList.remove("active");
+          });
 
-        // Add active state to clicked link and corresponding section
-        e.target.setAttribute('data-active', 'true');
-        const targetSection = document.querySelector(e.target.getAttribute('href'));
-        if (targetSection) {
-            targetSection.classList.add('active');
-        }
+          // Add active state to clicked link and corresponding section
+          e.target.setAttribute("data-active", "true");
+          const targetSection = document.querySelector(
+            e.target.getAttribute("href")
+          );
+          if (targetSection) {
+            targetSection.classList.add("active");
+          }
 
-        // Close sidebar on mobile
-        if (window.innerWidth <= 768) {
+          // Close sidebar on mobile
+          if (window.innerWidth <= 768) {
             toggleSidebar();
+          }
+        });
+      });
+
+      // Handle initial state based on URL hash
+      function setInitialState() {
+        const hash = window.location.hash || "#home"; // Default to #home if no hash in URL
+        const targetLink = document.querySelector(`a[href="${hash}"]`);
+        const targetSection = document.querySelector(hash);
+
+        // Remove all active states
+        document.querySelectorAll(".nav-link").forEach((l) => {
+          l.setAttribute("data-active", "false");
+        });
+        document.querySelectorAll(".section").forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        // Add active state to initial section based on URL hash
+        if (targetLink && targetSection) {
+          targetLink.setAttribute("data-active", "true");
+          targetSection.classList.add("active");
         }
-    });
-});
+      }
 
-// Handle initial state based on URL hash
-function setInitialState() {
-    const hash = window.location.hash || '#home'; // Default to #home if no hash in URL
-    const targetLink = document.querySelector(`a[href="${hash}"]`);
-    const targetSection = document.querySelector(hash);
+      // Set initial state on page load
+      setInitialState();
 
-    // Remove all active states
-    document.querySelectorAll('.nav-link').forEach(l => {
-        l.setAttribute('data-active', 'false');
-    });
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-    });
-
-    // Add active state to initial section based on URL hash
-    if (targetLink && targetSection) {
-        targetLink.setAttribute('data-active', 'true');
-        targetSection.classList.add('active');
-    }
-}
-
-// Set initial state on page load
-setInitialState();
-
-// Update state when hash changes
-window.addEventListener('hashchange', setInitialState);
-
+      // Update state when hash changes
+      window.addEventListener("hashchange", setInitialState);
     </script>
 
     <script

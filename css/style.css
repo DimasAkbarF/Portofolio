@@ -12,20 +12,28 @@ body {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
   color: white;
   font-family: system-ui, -apple-system, sans-serif;
+  font-feature-settings: normal;
   cursor: pointer;
 }
 .contact-options i {
   font-size: 2rem;
-  color: #495057;
   margin: 0 10px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 10px;
+  border-radius: 50%; /* Membuat ikon berbentuk lingkaran */
+  background: linear-gradient(135deg, #1a1a1a, #2d3436); /* Warna dasar */
+  color: #fff; /* Warna ikon */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
 }
 
 /* Style dasar untuk .navbar-toggler-icon */
 .contact-options i:hover {
-  color: #e0e0e0;
-  transform: scale(1.2);
+  background: linear-gradient(135deg, #4facfe, #00f2fe); /* Warna gradasi saat hover */
+  color: #1a1a1a; /* Warna teks saat hover */
+  transform: scale(1.2); /* Memperbesar sedikit */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Bayangan lebih kuat saat hover */
 }
+
 
 .jumbotron {
   padding: 3rem;
@@ -328,11 +336,14 @@ form .btn-primary:hover {
   height: 40px;
   margin: 0 10px;
   transition: transform 0.3s ease;
+  text-decoration: none;
 }
 
 .contact-options a:hover {
   transform: scale(1.2);
 }
+
+
 
 .sidebar {
   position: fixed;
@@ -483,4 +494,6 @@ form .btn-primary:hover {
     max-width: var(--sidebar-width);
   }
 }
+
+
 
