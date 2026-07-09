@@ -5,7 +5,7 @@ const navItems = [
   { label: 'Tentang', target: 'about' },
   { label: 'Keahlian', target: 'skills' },
   { label: 'Proyek', target: 'projects' },
-  { label: 'Pengalaman', target: 'experience' },
+  { label: 'Journey', target: 'experience' },
   { label: 'Sertifikat', target: 'achievements' },
   { label: 'Kontak', target: 'contact' },
 ];

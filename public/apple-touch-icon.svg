@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Dimz.dev app icon">
+  <rect width="180" height="180" rx="40" fill="#050505"/>
+  <path d="M48 126V54h28c23 0 40 14 40 36s-17 36-40 36H48Zm22-20h7c11 0 18-6 18-16s-7-16-18-16h-7v32Z" fill="#f4f4f5"/>
+  <path d="M123 126V54h12v72h-12Z" fill="#2563eb"/>
+</svg>

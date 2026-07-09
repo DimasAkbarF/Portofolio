@@ -4,9 +4,12 @@ import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: './',
-  plugins: [inspectAttr(), react()],
+export default defineConfig(({ command }) => ({
+  base: '/',
+  plugins: [
+    command === 'serve' ? inspectAttr() : null,
+    react(),
+  ].filter(Boolean),
   server: {
     port: 3000,
   },
@@ -22,6 +25,8 @@ export default defineConfig({
           if (id.includes('node_modules')) {
             if (id.includes('react-dom')) return 'react-dom';
             if (id.includes('node_modules/react/')) return 'react';
+            if (id.includes('gsap') || id.includes('@gsap')) return 'gsap';
+            if (id.includes('simple-icons')) return 'simple-icons';
             if (id.includes('lucide-react') || id.includes('react-icons')) return 'icons';
             return 'vendor';
           }
@@ -30,4 +35,4 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 600,
   },
-});
+}));

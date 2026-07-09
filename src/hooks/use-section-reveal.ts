@@ -31,20 +31,18 @@ export function useSectionReveal(
       const isMobile = window.matchMedia('(max-width: 767px)').matches;
       if (items.length > 0) {
         gsap.set(items, {
-          autoAlpha: 0,
+          opacity: 0,
           y: isMobile ? 26 : 36,
-          filter: isMobile ? 'blur(6px)' : 'blur(10px)',
-          willChange: 'transform, opacity, filter',
+          willChange: 'transform, opacity',
         });
 
         gsap.to(items, {
-          autoAlpha: 1,
+          opacity: 1,
           y: 0,
-          filter: 'blur(0px)',
           duration: 0.9,
           ease: 'power3.out',
           stagger: 0.1,
-          clearProps: 'transform,opacity,visibility,filter,willChange',
+          clearProps: 'transform,opacity,willChange',
           scrollTrigger: {
             trigger: root,
             start: rootMargin,

@@ -13,7 +13,12 @@ export function AboutSection() {
   useSectionReveal(sectionRef, { parallaxSelector: '[data-section-parallax]' });
 
   return (
-    <section id="about" ref={sectionRef} className="relative w-full py-[120px] bg-black">
+    <section
+      id="about"
+      ref={sectionRef}
+      aria-labelledby="about-heading"
+      className="relative w-full py-[120px] bg-black"
+    >
       <div>
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-16 items-center">
@@ -26,10 +31,11 @@ export function AboutSection() {
                     background: 'radial-gradient(circle at 40% 40%, #2563eb, transparent 70%)',
                   }}
                 />
-                <img
+                <figure>
+                  <img
                   data-section-parallax
                   src="/assets/About.webp"
-                  alt="DIMZ.DEV - Frontend Developer"
+                  alt="Portrait of Dimas Akbar, freelance web developer behind Dimz.dev"
                   width={941}
                   height={1369}
                   className="w-full aspect-[3/4] object-cover shadow-2xl lg:rounded-lg"
@@ -39,6 +45,10 @@ export function AboutSection() {
                   loading="lazy"
                   decoding="async"
                 />
+                  <figcaption className="sr-only">
+                    Dimas Akbar, freelance web developer and Informatics Engineering student.
+                  </figcaption>
+                </figure>
                 <div
                   className="absolute inset-0 pointer-events-none lg:hidden"
                   style={{
@@ -55,7 +65,7 @@ export function AboutSection() {
               </div>
 
               <div data-section-reveal className="about-item">
-                <SectionHeading text="About Me" />
+                <SectionHeading id="about-heading" text={<span>About <span className="text-[#2563eb]">Me</span></span>} />
               </div>
 
               <p data-section-reveal className="about-item text-[13px] text-[#9c9c9c] leading-relaxed max-w-[520px]">

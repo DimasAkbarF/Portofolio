@@ -1,57 +1,11 @@
 import { useRef, type CSSProperties } from 'react';
-import type { SimpleIcon } from 'simple-icons';
-import {
-  siDocker,
-  siFigma,
-  siGit,
-  siGithub,
-  siJavascript,
-  siLaravel,
-  siMongodb,
-  siMysql,
-  siNextdotjs,
-  siNodedotjs,
-  siPhp,
-  siPostgresql,
-  siReact,
-  siTailwindcss,
-  siTypescript,
-  siVite,
-} from 'simple-icons/icons';
 import { TagLabel } from '@/components/TagLabel';
+import { bottomSkills, topSkills, type Skill } from '@/data/skills';
 import { useSectionReveal } from '@/hooks/use-section-reveal';
-
-type Skill = {
-  name: string;
-  icon: SimpleIcon;
-  color: string;
-};
 
 type SkillStyle = CSSProperties & {
   '--skill-color': string;
 };
-
-const topSkills: Skill[] = [
-  { name: 'JavaScript', icon: siJavascript, color: '#F7DF1E' },
-  { name: 'TypeScript', icon: siTypescript, color: '#3178C6' },
-  { name: 'ReactJS', icon: siReact, color: '#61DAFB' },
-  { name: 'Next.js', icon: siNextdotjs, color: '#FFFFFF' },
-  { name: 'Laravel', icon: siLaravel, color: '#FF2D20' },
-  { name: 'PostgreSQL', icon: siPostgresql, color: '#4169E1' },
-  { name: 'Tailwind CSS', icon: siTailwindcss, color: '#06B6D4' },
-  { name: 'Docker', icon: siDocker, color: '#2496ED' },
-];
-
-const bottomSkills: Skill[] = [
-  { name: 'Figma', icon: siFigma, color: '#F24E1E' },
-  { name: 'Git', icon: siGit, color: '#F05032' },
-  { name: 'PHP', icon: siPhp, color: '#777BB4' },
-  { name: 'MySQL', icon: siMysql, color: '#4479A1' },
-  { name: 'Node.js', icon: siNodedotjs, color: '#5FA04E' },
-  { name: 'MongoDB', icon: siMongodb, color: '#47A248' },
-  { name: 'GitHub', icon: siGithub, color: '#FFFFFF' },
-  { name: 'Vite', icon: siVite, color: '#646CFF' },
-];
 
 function SkillPill({ skill }: { skill: Skill }) {
   return (
@@ -104,7 +58,7 @@ export function SkillsSection() {
     <section
       id="skills"
       ref={sectionRef}
-      aria-label="Keahlian Teknis"
+      aria-labelledby="skills-heading"
       className="relative overflow-hidden bg-black px-6 py-24 text-white md:py-32"
     >
       <div className="pointer-events-none absolute inset-0">
@@ -118,9 +72,9 @@ export function SkillsSection() {
           <div>
             <TagLabel text="TECH STACK" className="mb-5 text-zinc-500" />
 
-            <h2 className="font-heading text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl lg:text-8xl">
-              Keahlian
-              <span className="block text-[#2563eb]">Teknis.</span>
+            <h2 id="skills-heading" className="font-heading text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl lg:text-8xl">
+              Skill
+              <span className="block text-[#2563eb]">Technical.</span>
             </h2>
           </div>
 

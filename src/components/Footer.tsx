@@ -12,12 +12,13 @@ export function Footer() {
         </span>
         <a
           href="https://github.com/DimasAkbarF"
-
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit Dimas Akbar on GitHub"
+          title="GitHub"
           className="text-[#9c9c9c] hover:text-[#e2e2e2] transition-colors duration-300"
         >
-          <Github size={20} />
+          <Github size={20} aria-hidden="true" focusable="false" />
         </a>
       </div>
     </footer>

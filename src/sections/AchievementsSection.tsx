@@ -1,49 +1,12 @@
 import { memo, useRef } from 'react';
 import { TagLabel } from '@/components/TagLabel';
+import { certificates, type Certificate } from '@/data/certificates';
 import { useSectionReveal } from '@/hooks/use-section-reveal';
-import certJava from '@/assets/certificates/ai-gallery.webp';
-import certWeb from '@/assets/certificates/ai1-gallery.webp';
-import certJavascript from '@/assets/certificates/dasarai-gallery.webp';
-import certGdg from '@/assets/certificates/gdg-gallery.webp';
-import certPython from '@/assets/certificates/python-gallery.webp';
-
-const certificates = [
-  {
-    title: 'Belajar Dasar Pemrograman JavaScript',
-    issuer: 'Dicoding Indonesia',
-    image: certJavascript,
-    alt: 'Belajar Dasar Pemrograman JavaScript certificate from Dicoding Indonesia',
-  },
-  {
-    title: 'Belajar Pemrograman Java',
-    issuer: 'Dicoding Indonesia',
-    image: certJava,
-    alt: 'Belajar Pemrograman Java certificate from Dicoding Indonesia',
-  },
-  {
-    title: 'Dasar Pemrograman Web',
-    issuer: 'Dicoding Indonesia',
-    image: certWeb,
-    alt: 'Dasar Pemrograman Web certificate from Dicoding Indonesia',
-  },
-  {
-    title: 'Google Developer Groups Event',
-    issuer: 'GDG Indonesia',
-    image: certGdg,
-    alt: 'Google Developer Groups event certificate',
-  },
-  {
-    title: 'Python Development',
-    issuer: 'Python Academy',
-    image: certPython,
-    alt: 'Python Development certificate',
-  },
-];
 
 const CertificateCard = memo(function CertificateCard({
   certificate,
 }: {
-  certificate: (typeof certificates)[0];
+  certificate: Certificate;
 }) {
   return (
     <article data-section-reveal className="certificate-card group">
@@ -77,7 +40,7 @@ export function AchievementsSection() {
     <section
       id="achievements"
       ref={sectionRef}
-      aria-label="Sertifikat dan Penghargaan"
+      aria-labelledby="achievements-heading"
       className="relative overflow-hidden bg-black px-6 py-24 text-white md:py-32"
     >
       <div className="pointer-events-none absolute inset-0">
@@ -90,9 +53,9 @@ export function AchievementsSection() {
         <div data-section-reveal className="mx-auto mb-14 flex max-w-3xl flex-col items-center text-center md:mb-16">
           <TagLabel text="CERTIFICATIONS" className="mb-5 text-zinc-500" />
 
-          <h2 className="font-heading text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl lg:text-8xl">
-            Sertifikat &
-            <span className="block text-[#2563eb]">Penghargaan.</span>
+          <h2 id="achievements-heading" className="font-heading text-5xl font-semibold tracking-[-0.06em] text-white md:text-7xl lg:text-8xl">
+            Certificate &
+            <span className="block text-[#2563eb]">Award.</span>
           </h2>
 
           <p className="mt-6 max-w-2xl text-sm leading-7 text-zinc-400 md:text-base">

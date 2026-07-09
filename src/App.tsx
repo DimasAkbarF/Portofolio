@@ -1,26 +1,42 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, type ComponentType } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { ScrollIndicator } from '@/components/ScrollIndicator';
 import { Footer } from '@/components/Footer';
 import { HeroSection } from '@/sections/HeroSection';
 
-const AboutSection = lazy(() =>
-  import('@/sections/AboutSection').then((m) => ({ default: m.AboutSection }))
+const lazySection = <T extends Record<string, unknown>>(
+  loader: () => Promise<T>,
+  exportName: keyof T
+) =>
+  lazy(() =>
+    loader().then((module) => ({
+      default: module[exportName] as ComponentType,
+    }))
+  );
+
+const AboutSection = lazySection(
+  () => import('@/sections/AboutSection'),
+  'AboutSection'
 );
-const ProjectsSection = lazy(() =>
-  import('@/sections/ProjectsSection').then((m) => ({ default: m.ProjectsSection }))
+const SkillsSection = lazySection(
+  () => import('@/sections/SkillsSection'),
+  'SkillsSection'
 );
-const AchievementsSection = lazy(() =>
-  import('@/sections/AchievementsSection').then((m) => ({ default: m.AchievementsSection }))
+const ProjectsSection = lazySection(
+  () => import('@/sections/ProjectsSection'),
+  'ProjectsSection'
 );
-const SkillsSection = lazy(() =>
-  import('@/sections/SkillsSection').then((m) => ({ default: m.SkillsSection }))
+const ExperienceSection = lazySection(
+  () => import('@/sections/ExperienceSection'),
+  'ExperienceSection'
 );
-const ExperienceSection = lazy(() =>
-  import('@/sections/ExperienceSection').then((m) => ({ default: m.ExperienceSection }))
+const AchievementsSection = lazySection(
+  () => import('@/sections/AchievementsSection'),
+  'AchievementsSection'
 );
-const ContactSection = lazy(() =>
-  import('@/sections/ContactSection').then((m) => ({ default: m.ContactSection }))
+const ContactSection = lazySection(
+  () => import('@/sections/ContactSection'),
+  'ContactSection'
 );
 
 function SectionFallback() {
@@ -30,10 +46,20 @@ function SectionFallback() {
 export default function App() {
   return (
     <div className="min-h-screen bg-black text-white">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Navigation />
       <ScrollIndicator />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
+        <nav className="sr-only" aria-label="Breadcrumb">
+          <ol>
+            <li>
+              <a href="https://dimz.dev/">Home</a>
+            </li>
+          </ol>
+        </nav>
         <HeroSection />
 
         <Suspense fallback={<SectionFallback />}>

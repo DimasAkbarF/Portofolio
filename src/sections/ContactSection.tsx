@@ -1,13 +1,22 @@
 import { useRef } from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Instagram } from 'lucide-react';
 import { TagLabel } from '@/components/TagLabel';
 import { SectionHeading } from '@/components/SectionHeading';
 import { useSectionReveal } from '@/hooks/use-section-reveal';
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+  {
+    icon: Github,
+    href: 'https://github.com/DimasAkbarF',
+    label: 'GitHub',
+    ariaLabel: 'Visit Dimas Akbar on GitHub',
+  },
+  {
+    icon: Instagram,
+    href: 'https://www.instagram.com/dimasakbr29',
+    label: 'Instagram',
+    ariaLabel: 'Visit Dimas Akbar on Instagram',
+  },
 ];
 
 export function ContactSection() {
@@ -19,6 +28,7 @@ export function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
+      aria-labelledby="contact-heading"
       className="relative w-full pt-[120px] pb-[160px] bg-black"
     >
       <div
@@ -30,7 +40,7 @@ export function ContactSection() {
         </div>
 
         <div data-section-reveal>
-          <SectionHeading text="Let's Work Together" centered />
+          <SectionHeading id="contact-heading" text="Let's Work Together" centered />
         </div>
 
         <p data-section-reveal className="mt-6 text-[13px] text-[#9c9c9c] leading-relaxed max-w-[440px]">
@@ -40,10 +50,10 @@ export function ContactSection() {
 
         <a
           data-section-reveal
-          href="mailto:hello@dimz.dev"
+          href="mailto:dimasakbr299@gmail.com"
           className="mt-8 font-heading text-[24px] font-bold tracking-[-0.5px] text-[#2563eb] hover:text-[#3b82f6] hover:underline underline-offset-4 transition-all duration-300"
         >
-          hello@dimz.dev
+          dimasakbr299@gmail.com
         </a>
 
         <div data-section-reveal className="mt-8 flex items-center gap-6 bg-black">
@@ -55,10 +65,11 @@ export function ContactSection() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={social.label}
+                aria-label={social.ariaLabel}
+                title={social.label}
                 className="social-icon text-[#9c9c9c] hover:text-[#e2e2e2] hover:-translate-y-1 transition-all duration-300 transform"
               >
-                <Icon size={20} />
+                <Icon size={20} aria-hidden="true" focusable="false" />
               </a>
             );
           })}

@@ -3,6 +3,30 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: url('@fontsource/dm-sans/files/dm-sans-latin-700-normal.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2') format('woff2');
+  }
+
   :root {
     --background: 240 20% 4%;
     --foreground: 0 0% 89%;
@@ -46,6 +70,31 @@
     overflow-x: hidden;
   }
 
+  .skip-link {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 10000;
+    transform: translateY(-150%);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: #050505;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    transition: transform 180ms ease;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+    outline: 2px solid rgba(37, 99, 235, 0.85);
+    outline-offset: 3px;
+  }
+
+  #main-content:focus {
+    outline: none;
+  }
+
   ::selection {
     background-color: rgba(37, 99, 235, 0.3);
     color: #e2e2e2;
@@ -53,90 +102,121 @@
 }
 
 @layer components {
-  .premium-noise {
-    background-image:
-      radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.16) 0 1px, transparent 1.5px),
-      radial-gradient(circle at 72% 38%, rgba(147, 197, 253, 0.12) 0 1px, transparent 1.5px),
-      radial-gradient(circle at 44% 76%, rgba(196, 181, 253, 0.1) 0 1px, transparent 1.5px);
-    background-size: 120px 120px, 180px 180px, 240px 240px;
-    mask-image: linear-gradient(to bottom, transparent, black 12%, black 86%, transparent);
+  .hero-pass-visual {
+    perspective: 1000px;
+    transform-style: preserve-3d;
   }
 
-  .rb-reveal {
-    opacity: 0;
-    transform: translate3d(0, 18px, 0);
+  .hero-pass-lanyard {
+    transform-origin: 50% 0%;
+    transform-style: preserve-3d;
+  }
+
+  .hero-pass-strap {
+    border: 1px solid rgba(255, 255, 255, 0.045);
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.065) 0 1px,
+        rgba(255, 255, 255, 0) 1px 5px
+      ),
+      linear-gradient(90deg, #050506 0%, #1a1b1f 48%, #070708 100%);
+    box-shadow:
+      inset 2px 0 7px rgba(255, 255, 255, 0.04),
+      inset -3px 0 8px rgba(0, 0, 0, 0.72),
+      0 10px 24px rgba(0, 0, 0, 0.34);
+  }
+
+  .hero-pass-strap-left {
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.06) 0 1px,
+        rgba(255, 255, 255, 0) 1px 5px
+      ),
+      linear-gradient(90deg, #050506 0%, #191a1e 48%, #070708 100%);
+  }
+
+  .hero-pass-strap-right {
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.06) 0 1px,
+        rgba(255, 255, 255, 0) 1px 5px
+      ),
+      linear-gradient(90deg, #050506 0%, #191a1e 48%, #070708 100%);
+  }
+
+  .hero-pass-connector {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(
+      145deg,
+      rgba(82, 85, 92, 0.96),
+      rgba(13, 14, 17, 0.98) 62%,
+      rgba(48, 51, 57, 0.92)
+    );
+    box-shadow:
+      0 12px 28px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  .hero-pass-ring {
+    border: 5px solid #181a1f;
+    background: transparent;
+    box-shadow:
+      0 8px 22px rgba(0, 0, 0, 0.48),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .hero-pass-hook {
+    background: #111318;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.42);
+  }
+
+  .hero-pass-card {
+    --pass-shine-x: 50%;
+    --pass-shine-y: 36%;
+    --pass-shine-opacity: 0;
+    transform-style: preserve-3d;
     transition:
-      opacity 700ms ease,
-      transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: var(--reveal-delay, 0ms);
+      border-color 260ms ease,
+      box-shadow 260ms ease;
   }
 
-  .rb-reveal[data-visible='true'] {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+  .hero-pass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+      radial-gradient(
+        circle at var(--pass-shine-x) var(--pass-shine-y),
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.07) 18%,
+        transparent 38%
+      ),
+      linear-gradient(
+        112deg,
+        transparent 8%,
+        rgba(255, 255, 255, 0.08) 18%,
+        transparent 31%,
+        transparent 100%
+      );
+    mix-blend-mode: screen;
+    opacity: var(--pass-shine-opacity);
+    transition: opacity 420ms ease;
   }
 
-  .rb-split-heading {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.18em;
-  }
-
-  .rb-split-word {
-    display: inline-block;
-    opacity: 0;
-    filter: blur(8px);
-    transform: translate3d(0, 0.35em, 0);
-    animation: split-word-in 720ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--word-delay, 0ms);
-  }
-
-  .technology-universe,
-  .career-journey {
-    content-visibility: auto;
-    contain-intrinsic-size: 900px;
-  }
-
-  .tech-capsule-wrap {
-    left: var(--x);
-    top: var(--y);
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  .tech-capsule-wrap[data-visible='true'] {
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  .tech-capsule-wrap[data-visible='true'] .tech-capsule {
-    animation: capsule-drift 8s ease-in-out infinite;
-    animation-delay: var(--drift-delay, 0s);
-  }
-
-  .tech-capsule {
+  .hero-pass-card:hover {
+    border-color: rgba(255, 255, 255, 0.16);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 18px 70px rgba(15, 23, 42, 0.3),
-      0 0 34px rgba(var(--chip-tone), 0.1);
-  }
-
-  .tech-capsule:hover {
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.14),
-      0 24px 80px rgba(0, 0, 0, 0.38),
-      0 0 42px rgba(var(--chip-tone), 0.22);
-  }
-
-  .journey-card {
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
-      0 24px 90px rgba(0, 0, 0, 0.28);
-  }
-
-  .journey-row:hover .journey-node {
-    border-color: rgba(147, 197, 253, 0.85);
-    background: rgb(96 165 250);
-    box-shadow: 0 0 34px rgba(96, 165, 250, 0.75);
+      0 40px 120px rgba(0, 0, 0, 0.6),
+      0 18px 50px rgba(37, 99, 235, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 -1px 0 rgba(96, 165, 250, 0.1);
   }
 
   .skills-marquee {
@@ -218,19 +298,19 @@
   }
 
   .project-card-image {
-    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .project-card-overlay {
-    transition: opacity 700ms ease;
+    transition: opacity 420ms ease;
   }
 
   .project-card:hover .project-card-image {
-    transform: scale(1.025);
+    transform: scale(1.015);
   }
 
   .project-card:hover .project-card-overlay {
-    opacity: 0.12;
+    opacity: 0.08;
   }
 
   .certificate-card {
@@ -272,24 +352,6 @@
   }
 }
 
-@keyframes split-word-in {
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes capsule-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -8px, 0);
-  }
-}
-
 @keyframes skills-marquee-left {
   from {
     transform: translate3d(0, 0, 0);
@@ -309,11 +371,6 @@
 }
 
 @media (max-width: 767px) {
-  .premium-noise {
-    opacity: 0.28;
-    background-size: 160px 160px, 220px 220px, 280px 280px;
-  }
-
   .skills-marquee {
     mask-image: linear-gradient(
       90deg,
@@ -350,22 +407,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rb-reveal,
-  .rb-reveal[data-visible='true'],
-  .rb-split-word,
-  .tech-capsule-wrap[data-visible='true'] .tech-capsule {
-    animation: none;
-    filter: none;
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .tech-capsule-wrap,
-  .tech-capsule-wrap[data-visible='true'] {
-    transform: translate3d(-50%, -50%, 0);
-  }
-
   .skills-track,
   .skills-track-reverse {
     animation: none;
@@ -396,5 +437,19 @@
   .certificate-card:hover,
   .certificate-card:hover .certificate-image {
     transition: none;
+  }
+
+  .hero-pass-card,
+  .hero-pass-card:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .hero-pass-lanyard {
+    transition: none;
+  }
+
+  .hero-pass-card::before {
+    display: none;
   }
 }

@@ -1,0 +1,27 @@
+# Dimz.dev
+
+Dimz.dev is the personal portfolio of Dimas Akbar, a freelance web developer and Informatics Engineering student at Universitas Pamulang.
+
+## Primary Topics
+
+- React, TypeScript, Vite, and Tailwind CSS frontend development
+- Responsive web interfaces and interactive user experiences
+- Android performance projects, Magisk modules, and custom kernel work
+- Certificates, learning journey, selected projects, and contact information
+
+## Canonical URL
+
+https://dimz.dev/
+
+## Owner
+
+Dimas Akbar
+
+## Social Profiles
+
+- GitHub: https://github.com/DimasAkbarF
+- Instagram: https://www.instagram.com/dimasakbr29
+
+## Contact
+
+Professional inquiries: dimasakbr299@gmail.com
