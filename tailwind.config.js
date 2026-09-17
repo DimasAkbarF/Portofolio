@@ -9,9 +9,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['DM Sans', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Archivo', 'system-ui', 'sans-serif'],
+        heading: ['Archivo', 'system-ui', 'sans-serif'],
+        serif: ['Newsreader', 'Georgia', 'serif'],
+        mono: ['Archivo', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "prerender": "node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource/dm-sans": "^5.2.8",
-    "@fontsource/inter": "^5.2.8",
-    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/archivo": "^5.3.0",
+    "@fontsource/newsreader": "^5.3.0",
     "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",

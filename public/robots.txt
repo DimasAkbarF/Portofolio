@@ -1,4 +1,20 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dimz.dev/sitemap.xml
+# AI assistants and search crawlers are welcome to read public content.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://dimasakbar.xyz/sitemap.xml

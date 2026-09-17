@@ -1,12 +1,12 @@
 {
   "name": "Dimas Akbar Portfolio",
-  "short_name": "Dimz.dev",
+  "short_name": "Dimas Akbar",
   "description": "Portfolio of Dimas Akbar, freelance web developer.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#e8e6de",
+  "theme_color": "#e8e6de",
   "lang": "en",
   "icons": [
     {

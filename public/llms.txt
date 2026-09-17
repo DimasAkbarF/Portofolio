@@ -1,6 +1,6 @@
-# Dimz.dev
+# Dimas Akbar
 
-Dimz.dev is the personal portfolio of Dimas Akbar, a freelance web developer and Informatics Engineering student at Universitas Pamulang.
+dimasakbar.xyz is the personal portfolio of Dimas Akbar, a freelance web developer and Informatics Engineering student at Universitas Pamulang in Indonesia.
 
 ## Primary Topics
 
@@ -9,9 +9,17 @@ Dimz.dev is the personal portfolio of Dimas Akbar, a freelance web developer and
 - Android performance projects, Magisk modules, and custom kernel work
 - Certificates, learning journey, selected projects, and contact information
 
+## Selected Projects
+
+- TechFix Software — Android technical-service platform built with Next.js 15, TypeScript, and Tailwind CSS: https://techfixsoftware.my.id/
+- Kalkulator Pajak UMKM — React and Vite web app for estimating 0.5% UMKM final income tax: https://kalkulator-pajak-umkm.vercel.app/
+- Gabut Remake — shell-based Magisk module for MediaTek Android devices
+- Phoneix-Next — custom Android kernel for Redmi Note 9 (Merlinx)
+- MyCash — web billing and payment portal built with Next.js 16, Supabase and TypeScript: https://mycash-delta.vercel.app (source: https://github.com/DimasAkbarF/MyC4sh)
+
 ## Canonical URL
 
-https://dimz.dev/
+https://dimasakbar.xyz/
 
 ## Owner
 
