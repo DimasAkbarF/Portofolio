@@ -43,9 +43,7 @@ export function WhoChapter() {
 
           <div className="who-prose">
             <p data-sc-in>
-              I am a frontend developer and Informatics Engineering student at Universitas
-              Pamulang. Most of what I know came from building small things over and over
-              until they behaved, then rebuilding them when they did not.
+              Dimas Akbar is a freelance web developer and Informatics Engineering student at Universitas Pamulang, Indonesia.
             </p>
             <p data-sc-in>
               I work in React, TypeScript and Tailwind, and I lean on animation only when it
