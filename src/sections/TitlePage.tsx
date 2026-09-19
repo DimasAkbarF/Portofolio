@@ -7,7 +7,7 @@ export function TitlePage() {
         </h1>
 
         <p className="title-page__role">
-          Freelance web developer — <em>React, TypeScript and Tailwind</em>, built to
+          Web developer — <em>React, TypeScript and Tailwind</em>, built to
           survive a real screen.
         </p>
 
