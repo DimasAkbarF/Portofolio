@@ -38,12 +38,12 @@ export function WhoChapter() {
               loading="lazy"
               decoding="async"
             />
-            <figcaption>Dimas Akbar — dimasakbar.xyz</figcaption>
+        
           </figure>
 
           <div className="who-prose">
             <p data-sc-in>
-              Dimas Akbar is a freelance web developer and Informatics Engineering student at Universitas Pamulang, Indonesia.
+              Dimas Akbar Faturohman is a Web developer and Informatics Engineering student at Universitas Pamulang, Indonesia.
             </p>
             <p data-sc-in>
               I work in React, TypeScript and Tailwind, and I lean on animation only when it
