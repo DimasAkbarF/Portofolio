@@ -734,48 +734,152 @@ figure img { height: auto; }
 @media (max-width: 860px) { .proof__row { grid-template-columns: 1fr; } }
 
 /* ------------------------------------------------------------- colophon ---- */
+/* The last page, and the quietest one. A colophon in a printed book is small
+   print: it names the type, the press and the edition, and it hands the reader
+   back to the front. So this page is set below body size, keeps one hairline
+   between its two halves, and leaves the rest of the sheet empty on purpose.
+   Nothing here competes with the Proof chapter, which is the loudest line in
+   the book. */
 .colophon {
   border-top: 1px solid var(--rule);
-  padding-block: clamp(2.5rem, 7vw, 4.5rem) 8rem;
+  padding-block: clamp(2.75rem, 6vw, 4rem) clamp(5rem, 12vh, 8rem);
 }
-.colophon__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.6rem;
-}
-.colophon__cell { border-top: 1px solid var(--rule-soft); padding-top: 0.7rem; }
-.colophon__cell h3 {
-  font-family: var(--sc-font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--paper-soft);
-  margin: 0 0 0.4rem;
-}
-.colophon__cell p { margin: 0; font-size: 0.9rem; color: var(--paper-soft); }
-.colophon__cell p b { color: var(--paper-ink); font-weight: 600; }
-.colophon__proof {
+
+/* Running head. The book already has one voice for this: the folio foot, the
+   chapter kickers, the plate index. The leader is the printed device that ties
+   a running head to the edge of the page. */
+.colophon__runhead {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 2.5rem;
+  gap: 1rem;
+}
+.colophon__runhead h2 { margin: 0; }
+.colophon__leader { flex: 1 1 auto; height: 1px; background: var(--rule-soft); }
+
+/* Two kinds of content, so two treatments and an uneven split: the left column
+   is a sentence, the right is a record of labelled rows. A grid of four equal
+   boxes would say the same thing four times and read as a widget. The block is
+   capped short of the full measure on purpose, so the page ends in a wide
+   outer margin the way a leaf does, instead of two islands with a hole between. */
+.colophon__spread {
+  display: grid;
+  grid-template-columns: minmax(0, 46ch) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+  max-width: 52rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+.colophon__note {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.66;
+  color: var(--paper-soft);
+}
+.colophon__note b { color: var(--paper-ink); font-weight: 600; }
+
+/* The left track is the measure itself, so the sentence fills it and the air
+   stays in one gutter. The record is held to its own width and set to the
+   right edge, so its rows read as a record instead of a stretched table. */
+.colophon__record { margin: 0; width: min(24rem, 100%); justify-self: end; }
+.colophon__record > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  border-top: 1px solid var(--rule-soft);
+}
+.colophon__record > div:last-child { border-bottom: 1px solid var(--rule-soft); }
+.colophon__record dt {
   font-family: var(--sc-font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--paper-soft);
 }
-.colophon__proof i {
-  width: 0.9rem;
-  height: 0.9rem;
-  border: 1px solid var(--sc-accent);
-  background: var(--sc-accent);
-  transform: rotate(-3deg);
+.colophon__record dd { margin: 0; font-size: 0.92rem; text-align: right; }
+
+/* The one accent on the page sits on the last action a reader can take here. */
+.colophon__mail {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-family: var(--sc-font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  color: var(--accent-deep);
+  text-decoration: none;
+  overflow-wrap: anywhere;
 }
+.colophon__mail:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Imprint line, set on one baseline with the mark that already opens the book. */
+.colophon__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+}
+.colophon__imprint {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.1rem;
+  margin: 0;
+  font-family: var(--sc-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper-soft);
+}
+.colophon__imprint a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  /* A shouted domain is a wrong domain: the line is set in caps, the address
+     is not. */
+  text-transform: none;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.colophon__imprint a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+.colophon__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--rule);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--paper-ink);
+}
+
+/* The only arrow on the page, on the only control that moves through space. */
+.colophon__up {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--paper-soft);
+}
+.colophon__up:hover { color: var(--paper-ink); }
+.colophon__up:hover span { color: var(--accent-deep); }
+
 @media (max-width: 860px) {
-  .colophon__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .colophon { padding-bottom: 7rem; }
+  .colophon__spread { grid-template-columns: 1fr; gap: 2.25rem; max-width: none; }
+  .colophon__foot { align-items: flex-start; }
 }
 
 /* ------------------------------------------------ motion & degraded modes -- */

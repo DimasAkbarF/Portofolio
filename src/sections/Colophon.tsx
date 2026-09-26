@@ -1,41 +1,59 @@
+const imprint = [
+  { term: 'Edition', detail: 'First, 2026' },
+  { term: 'Author', detail: 'Dimas Akbar' },
+  { term: 'Place', detail: 'Indonesia' },
+];
+
 export function Colophon() {
   return (
     <footer id="colophon" className="colophon">
       <div className="sc-wrap">
-        <span className="sc-label">Colophon</span>
-
-        <div className="colophon__grid">
-          <div className="colophon__cell">
-            <h3>Set in</h3>
-            <p>
-              <b>Archivo</b> for display, <b>Newsreader</b> for prose.
-            </p>
-          </div>
-          <div className="colophon__cell">
-            <h3>Built with</h3>
-            <p>
-              React, TypeScript and Vite, with <b>scrollcraft</b> driving the scroll layer.
-            </p>
-          </div>
-          <div className="colophon__cell">
-            <h3>Edition</h3>
-            <p>
-              <b>Vol. 01</b> — 2026, Indonesia.
-            </p>
-          </div>
-          <div className="colophon__cell">
-            <h3>Inquiries</h3>
-            <p>dimasakbr299@gmail.com</p>
-          </div>
+        <div className="colophon__runhead">
+          <h2 className="sc-label">Colophon</h2>
+          <span className="colophon__leader" aria-hidden="true" />
         </div>
 
-        <p className="colophon__proof">
-          <i aria-hidden="true" />
-          <i aria-hidden="true" />
-          <i aria-hidden="true" />
-          <i aria-hidden="true" />
-          Proof complete — © 2026 dimasakbar.xyz
-        </p>
+        <div className="colophon__spread">
+          <p className="colophon__note">
+            Set in <b>Archivo</b> for display and <b>Newsreader</b> for prose.
+            Built with React, TypeScript and Vite. The scroll layer is written by
+            hand, one animation frame at a time, with no scroll library behind it.
+            The whole book ships as one static document: no analytics, no cookies,
+            no third-party scripts.
+          </p>
+
+          <dl className="colophon__record">
+            {imprint.map((row) => (
+              <div key={row.term}>
+                <dt>{row.term}</dt>
+                <dd>{row.detail}</dd>
+              </div>
+            ))}
+            <div>
+              <dt>Write to</dt>
+              <dd>
+                <a className="colophon__mail" href="mailto:dimasakbr299@gmail.com">
+                  dimasakbr299@gmail.com
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div className="colophon__foot">
+          <p className="colophon__imprint">
+            <span className="colophon__mark" aria-hidden="true">
+              DA
+            </span>
+            <span>© 2026 Dimas Akbar</span>
+            <a href="https://dimasakbar.xyz/">dimasakbar.xyz</a>
+          </p>
+
+          <a className="colophon__up" href="#top">
+            <span aria-hidden="true">↑</span>
+            Title page
+          </a>
+        </div>
       </div>
     </footer>
   );
