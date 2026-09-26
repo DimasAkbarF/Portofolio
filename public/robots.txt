@@ -1,20 +1,50 @@
 User-agent: *
 Allow: /
 
-# AI assistants and search crawlers are welcome to read public content.
-User-agent: GPTBot
+# Search. Googlebot matches the wildcard group above.
+User-agent: Googlebot
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+# AI answer engines. OAI-SearchBot and Claude-SearchBot feed search results,
+# ChatGPT-User and Claude-User are fired by a user inside a chat, and GPTBot
+# and ClaudeBot are the crawlers that build the underlying index.
 User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Bytespider
 Allow: /
 
 Sitemap: https://dimasakbar.xyz/sitemap.xml
