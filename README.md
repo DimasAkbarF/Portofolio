@@ -1,6 +1,6 @@
 # dimasakbar.xyz — Portfolio
 
-The personal portfolio of **Dimas Akbar**, a freelance web developer and
+The personal portfolio of **Dimas Akbar**, a web developer and
 Informatics Engineering student at Universitas Pamulang. A single-page,
 print-inspired "book" of chapters — Title, Who, Work, Route, Proof, Colophon —
 where the scroll layer is built by hand and motion carries hierarchy rather

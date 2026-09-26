@@ -1,7 +1,7 @@
 {
   "name": "Dimas Akbar Portfolio",
   "short_name": "Dimas Akbar",
-  "description": "Portfolio of Dimas Akbar, freelance web developer.",
+  "description": "Portfolio of Dimas Akbar, web developer.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

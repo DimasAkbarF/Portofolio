@@ -1,6 +1,6 @@
 # Dimas Akbar
 
-dimasakbar.xyz is the personal portfolio of Dimas Akbar, a freelance web developer and Informatics Engineering student at Universitas Pamulang in Indonesia.
+dimasakbar.xyz is the personal portfolio of Dimas Akbar, a web developer and Informatics Engineering student at Universitas Pamulang in Indonesia.
 
 ## Primary Topics
 

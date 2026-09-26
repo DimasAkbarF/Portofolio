@@ -32,7 +32,7 @@ export function WhoChapter() {
               src="/assets/About.webp"
               srcSet="/assets/About-400.webp 400w, /assets/About-600.webp 600w, /assets/About.webp 899w"
               sizes="(max-width: 860px) 86vw, 34vw"
-              alt="Portrait of Dimas Akbar, freelance web developer behind dimasakbar.xyz"
+              alt="Portrait of Dimas Akbar, web developer behind dimasakbar.xyz"
               width={899}
               height={1280}
               loading="lazy"
